@@ -1,0 +1,28 @@
+{
+  "name": "oneshop.web",
+  "version": "0.0.0",
+  "description": "Javascript SDK for web applications accessing Oneshop API with ease.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osltd/oneshop-web.js.git"
+  },
+  "keywords": [
+    "Oneshop",
+    "sdk",
+    "javascript",
+    "web"
+  ],
+  "author": "Oneshop Limited",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/osltd/oneshop-web.js/issues"
+  },
+  "homepage": "https://github.com/osltd/oneshop-web.js#readme",
+  "dependencies": {
+    "qs": "^6.9.1"
+  }
+}
