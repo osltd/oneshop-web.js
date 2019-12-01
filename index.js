@@ -7,13 +7,13 @@
 class Oneshop {
 
     constructor(shop_domain){
-        // preset credentials if it has
-        this.shop_domain = shop_domain;
+        // set shop domain
+        this.setShopDomain(shop_domain);
     }
 
     loadModules(){
         // load modules
-        //this.mall     = new (require('./src/roles/mall'))(this.getBaseURL(), this.getCredentials());
+        this.signature = new (require('/src/modules/signature.js')(this.getShopDomain()));
     }
 
     /**
@@ -21,7 +21,10 @@ class Oneshop {
      * @param {String} shop_domain 
      */
     setShopDomain(shop_domain){
-        this.shop_domain = shop_domain;
+        if(!shop_domain || /^[a-zA-Z0-9\.\-]$/i.test()){
+            throw 'Domain name could not contain any symbol except . and -';
+        }
+        this.shop_domain = `${shop_domain}/api`;
         this.loadModules();
     }
 
