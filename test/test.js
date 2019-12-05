@@ -4,4 +4,4 @@ const OS = new Oneshop("oneshopacademy.oneshop.host");
 
 OS.signature.get().then(data => console.log(data)).catch(error => console.log(error));
 
-OS.consumer.profile.get();
+OS.article.get().then(data => console.log(data)).catch(error => console.log(error));

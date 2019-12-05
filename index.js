@@ -13,6 +13,8 @@ class Oneshop {
         this.shop = new (require('./src/modules/shop'))(this.getShopDomain());
         // consumer
         this.consumer = new (require('./src/modules/consumer'))(this.getShopDomain());
+        // article
+        this.article = new (require('./src/modules/article'))(this.getShopDomain());
     }
 
     setShopBaseURL(base_url){
