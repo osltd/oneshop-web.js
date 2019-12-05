@@ -46,6 +46,18 @@ class Consumer {
     logout(){
         return request.delete(`${this.base_url}/consumers/session`);
     }
+
+    /**
+     * Login
+     * @param {Object} context 
+     * @param {String} context[email]
+     * @param {String} context[phone]
+     * @param {String} context[passwd]
+     * 
+     */
+    login(context){
+        return request.post(`${this.base_url}/sessions`, context);
+    }
     
 }
 
