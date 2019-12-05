@@ -7,7 +7,7 @@ class Oneshop {
     }
 
     loadModules(){
-        // file upload
+        // file upload signature
         this.signature = new (require('./src/modules/signature'))(this.getShopDomain());
         // shop
         this.shop = new (require('./src/modules/shop'))(this.getShopDomain());
@@ -17,6 +17,8 @@ class Oneshop {
         this.article = new (require('./src/modules/article'))(this.getShopDomain());
         // merchandise
         this.merchandise = new (require('./src/modules/merchandise'))(this.getShopDomain());
+        // validations
+        this.validation = new (require('./src/modules/validation'))(this.getShopDomain());
     }
 
     setShopBaseURL(base_url){
