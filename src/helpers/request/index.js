@@ -1,4 +1,4 @@
-const qs      = require('qs');
+const qs = require('qs');
 
 const makeRequest = (method, url, body, query) => new Promise((resolve, reject) => {
     // setup payload

@@ -1,14 +1,13 @@
-const Module = require('./module');
+const request = require('../helpers/request');
 
-
-class Signature extends Module{
+class Signature{
     
-    constructor(endpoint){
-        super(endpoint);
+    constructor(base_url){
+        this.base_url = base_url;
     }
 
     get(){
-        return this.request.get(`${this.endpoint}/signatures`);
+        return request.get(`${this.base_url}/signatures`);
     }
 
 }

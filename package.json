@@ -4,7 +4,8 @@
   "description": "Javascript SDK for web applications accessing Oneshop API with ease.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "MODE=prod node build.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,15 @@
   },
   "homepage": "https://github.com/osltd/oneshop-web.js#readme",
   "dependencies": {
-    "qs": "^6.9.1"
+    "path": "^0.12.7",
+    "qs": "^6.9.1",
+    "rimraf": "^3.0.0",
+    "uglify-es": "^3.3.9",
+    "util": "^0.12.1",
+    "webpack": "^4.41.2"
+  },
+  "devDependencies": {
+    "terser-webpack-plugin": "^2.2.1",
+    "uglifyjs-webpack-plugin": "^2.2.0"
   }
 }

@@ -1,39 +1,34 @@
 'use strict'
 
-
-/**
- * Define root class
- */
 class Oneshop {
 
-    constructor(shop_domain){
-        // set shop domain
-        this.setShopDomain(shop_domain);
+    constructor(base_url){
+        this.setShopBaseURL(base_url);
     }
 
     loadModules(){
-        // load modules
-        this.signature = new (require('/src/modules/signature.js')(this.getShopDomain()));
+        this.signature = new (require('./src/modules/signature'))(this.getShopDomain());
     }
 
-    /**
-     * Set shop domain
-     * @param {String} shop_domain 
-     */
-    setShopDomain(shop_domain){
-        if(!shop_domain || /^[a-zA-Z0-9\.\-]$/i.test()){
-            throw 'Domain name could not contain any symbol except . and -';
-        }
-        this.shop_domain = `${shop_domain}/api`;
+    setShopBaseURL(base_url){
+        // try to detect window
+        var window = window || undefined;
+        // using base url
+        if(base_url && !/^(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?$/.test(base_url)){
+            throw `${base_url} is not a valid domain. e.g. your_shop_name.oneshop.host`;
+        } else 
+        // no base url specify
+        if(window != undefined && !base_url){
+            base_url = (window.location || {}).host;
+        } 
+        // set base url
+        this.BASE_URL = `https://${base_url}`;
+        // reload modules
         this.loadModules();
     }
 
-
-    /**
-     * Returns the domain of shop
-     */
     getShopDomain(){
-        return this.shop_domain;
+        return this.BASE_URL;
     }
 
 }
