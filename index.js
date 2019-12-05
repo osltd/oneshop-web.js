@@ -7,7 +7,12 @@ class Oneshop {
     }
 
     loadModules(){
+        // file upload
         this.signature = new (require('./src/modules/signature'))(this.getShopDomain());
+        // shop
+        this.shop = new (require('./src/modules/shop'))(this.getShopDomain());
+        // consumer
+        this.consumer = new (require('./src/modules/consumer'))(this.getShopDomain());
     }
 
     setShopBaseURL(base_url){
@@ -22,7 +27,7 @@ class Oneshop {
             base_url = (window.location || {}).host;
         } 
         // set base url
-        this.BASE_URL = `https://${base_url}`;
+        this.BASE_URL = `https://${base_url}/api`;
         // reload modules
         this.loadModules();
     }

@@ -8,6 +8,7 @@ const compileCallback = (er, stats) => {
     if (er) throw er
     stats = util.isArray(stats.stats) ? stats.stats : [stats]
     stats.forEach((item) => {
+        // log to console
         process.stdout.write(item.toString({
             colors: true,
             modules: false,
