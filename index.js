@@ -15,6 +15,8 @@ class Oneshop {
         this.consumer = new (require('./src/modules/consumer'))(this.getShopDomain());
         // article
         this.article = new (require('./src/modules/article'))(this.getShopDomain());
+        // feed
+        this.feed = new (require('./src/modules/feed'))(this.getShopDomain());
         // merchandise
         this.merchandise = new (require('./src/modules/merchandise'))(this.getShopDomain());
         // validations
