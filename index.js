@@ -25,6 +25,8 @@ class Oneshop {
         this.order = new (require('./src/modules/order'))(this.getShopDomain());
         // voucher
         this.voucher = new (require('./src/modules/voucher'))(this.getShopDomain());
+        // cart
+        this.cart = new (require('./src/modules/cart'))(this.getShopDomain());
     }
 
     setShopBaseURL(base_url){
