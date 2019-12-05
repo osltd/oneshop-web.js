@@ -6,8 +6,13 @@ class Signature{
         this.base_url = base_url;
     }
 
-    get(){
-        return request.get(`${this.base_url}/signatures`);
+    /**
+     * Creates signature for upload files
+     * @param {Object} context
+     * @param {String} context[extension] (mime type: image/png, video/mp4, ...)
+     */
+    create(context){
+        return request.post(`${this.base_url}/signatures`, context);
     }
 
 }
