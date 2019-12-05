@@ -4,6 +4,13 @@ class Order {
     
     constructor(base_url){
         this.base_url = base_url;
+        /**
+         * Retrieve order history
+         * @param {Object} query 
+         */
+        this.history = {
+            get : (query) => request.get(`${this.base_url}/backlogs`, query || {})
+        }
     }
 
     /**
@@ -54,7 +61,7 @@ class Order {
     create(context){
         return request.post(`${this.base_url}/orders`, context);
     }
-    
+
 }
 
 module.exports = Order;
