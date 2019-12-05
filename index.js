@@ -15,21 +15,15 @@ class Oneshop {
         this.consumer = new (require('./src/modules/consumer'))(this.getShopDomain());
         // article
         this.article = new (require('./src/modules/article'))(this.getShopDomain());
-        // feed
-        this.feed = new (require('./src/modules/feed'))(this.getShopDomain());
         // merchandise
         this.merchandise = new (require('./src/modules/merchandise'))(this.getShopDomain());
-        // commities
-        this.commodity = new (require('./src/modules/commodity'))(this.getShopDomain());
-        // product
-        this.product = new (require('./src/modules/product'))(this.getShopDomain());
         // product variants
         this.variant = new (require('./src/modules/variant'))(this.getShopDomain());
         // validations
         this.validation = new (require('./src/modules/validation'))(this.getShopDomain());
         // order
         this.order = new (require('./src/modules/order'))(this.getShopDomain());
-        
+
     }
 
     setShopBaseURL(base_url){
