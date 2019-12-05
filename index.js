@@ -23,8 +23,13 @@ class Oneshop {
         this.commodity = new (require('./src/modules/commodity'))(this.getShopDomain());
         // product
         this.product = new (require('./src/modules/product'))(this.getShopDomain());
+        // product variants
+        this.variant = new (require('./src/modules/variant'))(this.getShopDomain());
         // validations
         this.validation = new (require('./src/modules/validation'))(this.getShopDomain());
+        // order
+        this.order = new (require('./src/modules/order'))(this.getShopDomain());
+        
     }
 
     setShopBaseURL(base_url){
