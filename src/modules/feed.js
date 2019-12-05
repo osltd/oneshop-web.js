@@ -107,7 +107,7 @@ class Feed {
      * 
      */
     delete(feedId){
-        return this.request.delete(`${this.baseURL}/feeds/${feedId}`, {}, this.credentials);
+        return this.request.delete(`${this.base_url}/feeds/${feedId}`, {}, this.credentials);
     }
 }
 
