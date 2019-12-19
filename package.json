@@ -1,6 +1,6 @@
 {
   "name": "oneshop.web",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Javascript SDK for web applications accessing Oneshop API with ease.",
   "main": "index.js",
   "scripts": {
@@ -31,6 +31,8 @@
     "webpack": "^4.41.2"
   },
   "devDependencies": {
+    "aws-sdk": "^2.593.0",
+    "dotenv": "^8.2.0",
     "terser-webpack-plugin": "^2.2.1"
   }
 }
