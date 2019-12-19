@@ -3,16 +3,19 @@ const qs = require('qs');
 const makeRequest = (method, url, body, query) => new Promise((resolve, reject) => {
     // setup payload
     let payload = {
-        url    : url + (Object.keys(query || {}).length ? `?${qs.stringify(query)}` : ""),
         method : method,
-        headers : { "Content-Type"  : "application/json"}
+        headers : { 
+            "Content-Type"  : "application/json"
+        }
     };
+    // setup url
+    url = url + (Object.keys(query || {}).length ? `?${qs.stringify(query)}` : "");
     // has body?
     if(/^POST|PUT$/i.test(method)){
         payload.body = JSON.stringify(body);
     }
     // make request
-    fetch(payload)
+    fetch(url, payload)
     // got response
     .then(response => {
         // error occurred
@@ -25,7 +28,7 @@ const makeRequest = (method, url, body, query) => new Promise((resolve, reject) 
                 try{ body = JSON.parse(body) } catch(e) { body = body || '' }
                 // handle error
                 if(/^401 Unauthorized$/.test(body)){
-                    messages.push('Permission denied: Wrong credentials.');
+                    messages.push(`You don have permission to perform this task. ${method} ${url}`);
                 } else if(typeof body == 'object' && Array.isArray(body.messages)){
                     messages = body.messages;
                 }
