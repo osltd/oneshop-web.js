@@ -1,6 +1,6 @@
 {
   "name": "oneshop.web",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Javascript SDK for web applications accessing Oneshop API with ease.",
   "main": "index.js",
   "scripts": {
