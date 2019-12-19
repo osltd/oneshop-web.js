@@ -31,6 +31,8 @@
     "webpack": "^4.41.2"
   },
   "devDependencies": {
+    "aws-sdk": "^2.593.0",
+    "dotenv": "^8.2.0",
     "terser-webpack-plugin": "^2.2.1"
   }
 }
