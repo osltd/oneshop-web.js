@@ -115,4 +115,4 @@ function App(){
 
 ## Equiry?
 Developers a eligible to request a referral code from us. And use the service for free!
-Please email to: hello@oneshop.team for details😂
+Please email to: hello@oneshop.team for details 🎉
