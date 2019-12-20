@@ -1,5 +1,5 @@
 # ONESHOP WEB SDK
-Web framework for access Oneshop API conveniently.
+Web framework for accessing Oneshop API conveniently.
 
 [![Version](https://img.shields.io/npm/v/oneshop.web.svg)](https://www.npmjs.org/package/onehshop.web)
 [![Downloads](https://img.shields.io/npm/dm/oneshop.web.svg)](https://www.npmjs.com/package/oneshop.web)
@@ -10,7 +10,18 @@ The Oneshop Web library provides convenient access to Oneshop Web APIs.
 ## Documentation
 
 See the [`Oneshop-web` API docs](https://docs.oneshop.dev) for JS/ReactJS.
+<br/><br/>
+## Guildlines
+### Create shop
+[`https://youtu.be/YjEhv97633Y`](https://youtu.be/YjEhv97633Y)
 
+### Setup custom theme
+[`https://youtu.be/CPEyCSblJb4`](https://youtu.be/CPEyCSblJb4)
+
+### Develop your own theme
+[`https://youtu.be/ej2FloWjxNQ`](https://youtu.be/ej2FloWjxNQ)<br/><br/>
+
+  
 ## Installation
 
 ### Option 1. For React JS, Vue Js or Angular JS.
@@ -29,8 +40,8 @@ npm install --save oneshop.web
 
 OR using UMD build (exports a global `Oneshop` object);
 
-
-## Option 2. Loading Oneshop Web SDK asynchronously
+<br/>
+### Option 2. Loading Oneshop Web SDK asynchronously
 Loading Oneshop.web asynchronously can speed up your initial page load.
 
 ```html
@@ -47,7 +58,7 @@ Loading Oneshop.web asynchronously can speed up your initial page load.
 </html>
 ```
 
-
+<br/><br/>
 ## Usage
 ### ReactJS
 
@@ -112,7 +123,7 @@ function App(){
   <!-- ... -->
 </html>
 ```
-
+<br/><br/>
 ## Equiry?
-Developers a eligible to request a referral code from us. And use the service for free!
-Please email to: hello@oneshop.team for details 🎉
+Developers a eligible to request a referral code from us. And use the service for free!<br/>
+Please email to: [`support@oneshop.team`](mailto:support@oneshop.team) for details 🎉
