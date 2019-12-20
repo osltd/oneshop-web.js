@@ -11,8 +11,9 @@ The Oneshop Web library provides convenient access to Oneshop Web APIs.
 
 See the [`Oneshop-web` API docs](https://docs.oneshop.dev) for JS/ReactJS.
 <br/><br/>
+
 ## Guildlines
-### Create shop
+### Create shop (Referral Code Required)
 [`https://youtu.be/YjEhv97633Y`](https://youtu.be/YjEhv97633Y)
 
 ### Setup custom theme
@@ -39,8 +40,8 @@ npm install --save oneshop.web
 ```
 
 OR using UMD build (exports a global `Oneshop` object);
-
 <br/>
+
 ### Option 2. Loading Oneshop Web SDK asynchronously
 Loading Oneshop.web asynchronously can speed up your initial page load.
 
@@ -49,7 +50,6 @@ Loading Oneshop.web asynchronously can speed up your initial page load.
   <head>
     <!-- ... -->
 
-    <!--        ┌─────────┐                                 ┌────────────────┐     -->
     <script id="oneshop-web" src="https://cdn.oneshop.cloud/oneshop-sdk.min.js" async></script>
 
     <!-- ... -->
@@ -100,7 +100,6 @@ function App(){
   <head>
     <!-- ... -->
 
-    <!--        ┌─────────┐                                 ┌────────────────┐     -->
     <script id="oneshop-web" src="https://cdn.oneshop.cloud/oneshop-sdk.min.js" async></script>
 
     <!-- ... -->
