@@ -124,5 +124,5 @@ function App(){
 ```
 <br/><br/>
 ## Equiry?
-Developers a eligible to request a referral code from us. And use the service for free!<br/>
+Developers are eligible to request a referral code from us to use the service for free!<br/>
 Please email to: [`support@oneshop.team`](mailto:support@oneshop.team) for details 🎉
