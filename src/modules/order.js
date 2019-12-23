@@ -7,6 +7,12 @@ class Order {
         /**
          * Retrieve order history
          * @param {Object} query 
+         * @param {String} query[page]
+         * 
+         * Examples:
+         * 
+         *  os.order.get({page:'1'});
+         * 
          */
         this.history = {
             get : (query) => request.get(`${this.base_url}/backlogs`, query || {})

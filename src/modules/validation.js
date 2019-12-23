@@ -11,6 +11,13 @@ class Validation {
      * @param {Object} context
      * @param {String} context[email]
      * @param {String} context[type] (link, code)
+     * 
+     * Examples:
+     * 
+     *  // create validation by 'email'
+     * 
+     *  os.validation.create({email:'test@oneshop.cloud',type:'LINK',null})
+     * 
      */
     create(context){
         return request.post(`${this.base_url}/validations`, context);
