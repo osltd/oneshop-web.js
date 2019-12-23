@@ -20,7 +20,7 @@ class Merchandise {
      * 
      *  // Get ALL merchandises
      * 
-     *  os.mall.merchandise.get({page:'1'}) 
+     *  os.merchandise.get({page:'1'}) 
      * 
      *  // Get specified merchandises with filters
      * 

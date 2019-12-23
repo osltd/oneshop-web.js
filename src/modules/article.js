@@ -20,11 +20,11 @@ class Article {
      * 
      *  // ALL filtering value are optional
      * 
-     *  // Get ALL articles form your own mall
+     *  // Get ALL articles
      * 
      *  os.article.get({page:'1'});
      * 
-     *  // Get articles with filters from your own mall
+     *  // Get articles with filters
      * 
      *  os.article.get({ids:'1743,293,6652',keywords:'love',tags:'tag1,tag2',
      *  shops:'522',statuses:'PUBLISHED',page:'1'});
