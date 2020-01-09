@@ -16,7 +16,7 @@ class Validation {
      * 
      *  // create validation by 'email'
      * 
-     *  os.validation.create({email:'test@oneshop.cloud',type:'LINK',null})
+     *  os.validation.create({email:'test@oneshop.cloud',type:'LINK'})
      * 
      */
     create(context){
