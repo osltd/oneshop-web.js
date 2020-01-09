@@ -11,7 +11,7 @@ class Order {
          * 
          * Examples:
          * 
-         *  os.order.get({page:'1'});
+         *  os.order.history.get({page:'1'});
          * 
          */
         this.history = {
