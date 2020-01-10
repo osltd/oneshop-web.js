@@ -8,6 +8,11 @@ class Shop {
 
     /**
      * Retrieve shop settings
+     * 
+     * Examples:
+     * 
+     *  os.shop.settings();
+     * 
      */
     settings(){
         return request.get(`${this.base_url}/shops/session`);

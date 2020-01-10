@@ -7,6 +7,12 @@ class Order {
         /**
          * Retrieve order history
          * @param {Object} query 
+         * @param {String} query[page]
+         * 
+         * Examples:
+         * 
+         *  os.order.history.get({page:'1'});
+         * 
          */
         this.history = {
             get : (query) => request.get(`${this.base_url}/backlogs`, query || {})
@@ -30,22 +36,13 @@ class Order {
      *      notes:'Please check the package pack well.',
      *      shipping:'1/F Block 1, Camcam Paint Building, 62 Hoi Yuen Road, Kwun Tong',
      *      items:[{
-     *          id:625,
-     *          product:{
-     *              id:'cad28564dee135464dab',
-     *              name:'Banana'
-     *          },
-     *          sku:'tk_1',
-     *          option:'color:Color,yellow:Yellow',
-     *          quantity:5,
-     *          photos:[ 
-     *              { 
-     *                  url:'https://assets.oneshop.cloud/..png',
-     *                  ext:'png'
-     *              }
-     *          ]
+     *          id:'08h25glao8h03ipwui9202ty48jfhum4x',
+     *          qty:5,
+     *          courier:"80h2480-29gh82gh-13081y4f-98h21"
      *      }],
      *      contact:{
+     *          first_name:'One',
+     *          last_name:'Shop',
      *          email:'test@oneshop.cloud',
      *          phone:'+85293456789',
      *          address:'1/f, Block 1, Camel Paint Building, 62 Hoi Yuen Road, Kwun Tong'

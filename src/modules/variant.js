@@ -17,7 +17,7 @@ class Variant {
      * 
      *  // Get ALL variants within the related product
      * 
-     *  os.creator.variant.get(2354,null)
+     *  os.variant.get(2354,null)
      * 
      *  // Get specified variants within the related product using filters
      * 
