@@ -41,6 +41,8 @@ class Order {
      *          courier:"80h2480-29gh82gh-13081y4f-98h21"
      *      }],
      *      contact:{
+     *          first_name:'One',
+     *          last_name:'Shop',
      *          email:'test@oneshop.cloud',
      *          phone:'+85293456789',
      *          address:'1/f, Block 1, Camel Paint Building, 62 Hoi Yuen Road, Kwun Tong'
