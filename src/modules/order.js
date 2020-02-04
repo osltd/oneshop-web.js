@@ -15,7 +15,7 @@ class Order {
          * 
          */
         this.history = {
-            get : (query) => request.get(`${this.base_url}/backlogs`, query || {})
+            get : (query) => request.get(`${this.base_url}/payments`, query || {})
         }
     }
 
