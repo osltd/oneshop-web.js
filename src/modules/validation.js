@@ -22,6 +22,27 @@ class Validation {
     create(context){
         return request.post(`${this.base_url}/validations`, context);
     }
+
+    /**
+     * Consume validation to activate account or reset password
+     * @param {Object} context
+     * @param {String} context[code]
+     * @param {String} context[passwd] (Optional)
+     * @param {String} context[confpasswd] (Optional)
+     * 
+     * Examples:
+     * 
+     *  // create validation by 'email'
+     * 
+     *  os.validation.consume(
+     *      1234, 
+     *      {code:'123456',passwd:'ILoveCoding3000',confpasswd:'ILoveCoding3000'}
+     *  )
+     * 
+     */
+    consume(validationId, context){
+        return request.put(`${this.base_url}/validations/${validationId}`, context);
+    }
     
 }
 
