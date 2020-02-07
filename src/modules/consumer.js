@@ -95,6 +95,49 @@ class Consumer {
     login(context){
         return request.post(`${this.base_url}/sessions`, context);
     }
+
+
+    /**
+     * Checkout
+     * @param {Object} context 
+     * @param {String} context[items] // Cart ID
+     * @param {String} context[coupons] // Coupons code separated by commas
+     * @param {String} context[notes]
+     * @param {Object} context[payment]
+     * @param {String} context[payment][card]
+     * @param {String} context[payment][exp_date]
+     * @param {String} context[payment][csc]
+     * @param {Object} context[contact]
+     * @param {String} context[shipping][address]
+     * @param {String} context[shipping][country]
+     * 
+     * Examples:
+     * 
+     *  os.consumer.checkout({
+     *      items : "R1g0GTJc9tGp3443",
+     *      coupons : "OneshopDevRocks",
+     *      notes : "Please provide me a double layer packing, thank you!",
+     *      shipping : {
+     *          address : "1/F, Camelpaint Building, Block 1, 62 Hoi Yuen Road, Kwun Tong",
+     *          country : "HK"
+     *      },
+     *      contact : {
+     *          email : "hello@oneshop.team",
+     *          first_name : "Peter",
+     *          last_name : "Chan",
+     *          phone : "+85261234567"
+     *      },
+     *      payment : {
+     *          card : "4242424242424242",
+     *          exp_date : "03/23",
+     *          csc : "123"
+     *      }
+     *  })
+     * 
+     */
+    checkout(context) {
+        return request.post(`${this.base_url}/payments`, context);
+    }
     
 }
 
