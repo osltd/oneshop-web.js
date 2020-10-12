@@ -1,9 +1,14 @@
-const request = require('../helpers/request');
+import { get, create, remove, update } from '../helpers/request';
+import OS from '../helpers/os_module';
 
-class Consumer {
+
+export default class Consumer extends OS {
     
-    constructor(base_url){
-        this.base_url = base_url;
+    profile:any;
+
+
+    constructor(baseUrl:string){
+        super(baseUrl);
 
         /**
          * Profile of consumer
@@ -18,7 +23,7 @@ class Consumer {
              *  os.consumer.profile.get()
              * 
              */
-            get : (query) => request.get(`${this.base_url}/consumers/session`, query),
+            get : (query) => get({url: `${this.baseUrl}/consumers/session`, query : query || {}}),
 
             /**
              * Update user profile
@@ -32,7 +37,7 @@ class Consumer {
              *  field_2:'value_2',
              *  ...);
              */
-            update : (context) => request.put(`${this.base_url}/consumers/session`, context)
+            update : (context) => update({ url : `${this.baseUrl}/consumers/session`, body : context })
 
         };
 
@@ -55,7 +60,7 @@ class Consumer {
      * 
      */
     signUp(context){
-        return request.post(`${this.base_url}/consumers`, context);
+        return create({url: `${this.baseUrl}/consumers`, body: context});
     }
 
     /**
@@ -67,7 +72,7 @@ class Consumer {
      * 
      */
     logout(){
-        return request.delete(`${this.base_url}/consumers/session`);
+        return remove({url : `${this.baseUrl}/consumers/session`});
     }
 
     /**
@@ -93,7 +98,7 @@ class Consumer {
      * 
      */
     login(context){
-        return request.post(`${this.base_url}/sessions`, context);
+        return create({ url: `${this.baseUrl}/sessions`, body : context });
     }
 
 
@@ -136,9 +141,7 @@ class Consumer {
      * 
      */
     checkout(context) {
-        return request.post(`${this.base_url}/payments`, context);
+        return create({ url : `${this.baseUrl}/payments`, body : context });
     }
     
 }
-
-module.exports = Consumer;
