@@ -1,10 +1,21 @@
-const request = require('../helpers/request');
+import { get, create, remove } from '../helpers/request';
+import OS from '../helpers/os_module';
 
-class Cart {
+
+interface CartItemRequest {
+    get:Function;
+    add:Function;
+    remove:Function; 
+}
+
+
+export default class Cart extends OS {
     
-    constructor(base_url){
-        this.base_url = base_url;
-        // cart items
+    // define properties
+    item:CartItemRequest;
+
+    constructor(baseUrl:string){
+        super(baseUrl);
         this.item = {
             /**
              * Get items of cart
@@ -14,7 +25,7 @@ class Cart {
              *  os.cart.item.get('32412')
              * 
              */
-            get : (cartId) => request.get(`${this.base_url}/carts/${cartId}/items`, {}),
+            get : (cartId) => get({ url: `${this.baseUrl}/carts/${cartId}/items`, query : {}}),
 
             /**
              * Add item to cart
@@ -28,7 +39,7 @@ class Cart {
              *  os.cart.item.add('32412',{id:'233',qty:6});
              * 
              */
-            add : (cartId, context) => request.post(`${this.base_url}/carts/${cartId}/items`, context),
+            add : (cartId, context) => create({ url : `${this.baseUrl}/carts/${cartId}/items`, body : context || {}}),
             
             /**
              * Removes an item from the cart
@@ -40,7 +51,7 @@ class Cart {
              *  os.cart.item.remove('32412','233');
              * 
              */
-            remove : (cartId, itemId) => request.delete(`${this.base_url}/carts/${cartId}/items/${itemId}`)
+            remove : (cartId, itemId) => remove({ url : `${this.baseUrl}/carts/${cartId}/items/${itemId}` })
         }
     }
 
@@ -53,9 +64,7 @@ class Cart {
      * 
      */
     create(){
-        return request.post(`${this.base_url}/carts`, {});
+        return create({ url : `${this.baseUrl}/carts`, body : {}});
     }
-
+    
 }
-
-module.exports = Cart;
