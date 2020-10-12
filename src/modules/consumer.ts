@@ -2,10 +2,14 @@ import { get, create, remove, update } from '../helpers/request';
 import OS from '../helpers/os_module';
 
 
+interface Profile {
+    get:Function;
+    update:Function;
+}
+
 export default class Consumer extends OS {
     
-    profile:any;
-
+    profile:Profile;
 
     constructor(baseUrl:string){
         super(baseUrl);
@@ -141,7 +145,7 @@ export default class Consumer extends OS {
      * 
      */
     checkout(context) {
-        return create({ url : `${this.baseUrl}/payments`, body : context });
+        return create({ url : `${this.baseUrl}/payments`, body : context});
     }
     
 }
