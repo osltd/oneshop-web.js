@@ -66,8 +66,8 @@ const makeRequest = (req : RequestPayload) => new Promise((resolve, reject) => {
 // define payload structure
 interface Payload {
     url:string;
-    body?:string;
-    query?:string;
+    body?:object;
+    query?:object;
 }
 
 // expose methods
