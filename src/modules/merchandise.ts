@@ -1,9 +1,11 @@
-const request = require('../helpers/request');
+import { get } from '../helpers/request';
+import OS from '../helpers/os_module';
 
-class Merchandise {
+
+export default class Merchandise extends OS {
     
-    constructor(base_url){
-        this.base_url = base_url;
+    constructor(baseUrl:string){
+        super(baseUrl);
     }
 
     /**
@@ -29,9 +31,7 @@ class Merchandise {
      * 
      */
     get(query){
-        return request.get(`${this.base_url}/merchandises`, query || {});
+        return get({ url : `${this.baseUrl}/merchandises`, query : query || {}});
     }
-    
-}
 
-module.exports = Merchandise;
+}
