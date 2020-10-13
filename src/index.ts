@@ -42,12 +42,12 @@ export default class Oneshop extends OS{
         this.voucher = new Voucher(this.getShopDomain());
     }
 
-    setShopBaseURL(baseUrl:string){
+    setShopBaseURL(baseUrl:string):void{
         // set base url
         this.baseUrl = baseUrl ? `${baseUrl}/api` : `/api`;
     }
 
-    getShopDomain(){
+    getShopDomain():any{
         return this.baseUrl;
     }
 
