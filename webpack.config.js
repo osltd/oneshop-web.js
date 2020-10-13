@@ -6,7 +6,19 @@ var MODE = /^prod$/.test(process.env.MODE || "prod") ? 'production' : 'developme
 module.exports = {
     mode         : MODE,
     entry        : {
-        sdk : ['./index.js']
+        sdk : ['./index.ts']
+    },
+    module: {
+        rules: [
+            {
+                test    : /\.ts?$/,
+                use     : 'ts-loader',
+                exclude : /node_modules/,
+            }
+        ],
+    },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ],
     },
     output       : {
         path          : path.resolve(__dirname, 'dist'),
