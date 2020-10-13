@@ -1,7 +1,7 @@
 # ONESHOP WEB SDK
 Web framework for accessing Oneshop API conveniently.
 
-[![Version](https://img.shields.io/npm/v/oneshop.web.svg)](https://www.npmjs.org/package/onehshop.web)
+[![Version](https://img.shields.io/npm/v/oneshop.web.svg)](https://www.npmjs.org/package/oneshop.web)
 [![Downloads](https://img.shields.io/npm/dm/oneshop.web.svg)](https://www.npmjs.com/package/oneshop.web)
 [![Try on RunKit](https://badge.runkitcdn.com/oneshop.web.svg)](https://runkit.com/npm/oneshop.web)
 
