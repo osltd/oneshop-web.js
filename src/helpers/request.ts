@@ -25,7 +25,7 @@ const makeRequest = (req : RequestPayload) => new Promise((resolve, reject) => {
         }
     };
     // setup url
-    req.url = req.url + (Object.keys(req.query || {}).length ? `?${queryStringify(req.query)}` : "");
+    req.url = req.url + req.query != undefined ? `?${queryStringify(req.query)}` : "";
     // has body?
     if(/^POST|PUT$/i.test(req.method)){
         payload.body = JSON.stringify(req.body);
