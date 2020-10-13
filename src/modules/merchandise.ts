@@ -1,6 +1,22 @@
 import { get } from '../helpers/request';
 import OS from '../helpers/os_module';
 
+interface MerchandisesQuery {
+    ids?:string;
+    collections?:string;
+    collection_names?:string;
+    shops?:string;
+    type?:string;
+    skus?:string;
+    tags?:string;
+    instock?:boolean;
+    locale?:string;
+    keywords?:string;
+    variants?:{ [variantKey:string] : [variantValue:string] };
+    ordering?:string;
+    page?:number;
+}
+
 
 export default class Merchandise extends OS {
     
@@ -26,11 +42,15 @@ export default class Merchandise extends OS {
      * 
      *  // Get specified merchandises with filters
      * 
-     *  os.merchandise.get({ids:'43,54,123',shops:'443,121,93'',tags:'tag1,tag2'
-     *  keyword:'love',page:'1'}) 
+     *  os.merchandise.get({
+     *      ids:'43,54,123',
+     *      shops:'443,121,93',
+     *      tags:'tag1,tag2'
+     *      keyword:'love',page:'1'
+     *  }) 
      * 
      */
-    get(query){
+    get(query?:MerchandisesQuery){
         return get({ url : `${this.baseUrl}/merchandises`, query : query || {}});
     }
 
