@@ -1,4 +1,4 @@
-import Oneshop from "../index";
+import Oneshop from "../lib";
 
 
 /**
@@ -19,4 +19,4 @@ import Oneshop from "../index";
 const OS = new Oneshop();
 
 // Get article
-OS.article.get({ page : 1, tags : "oneshoprocks" })
+OS.article.get({ page : 1, tags : "oneshoprocks" });
