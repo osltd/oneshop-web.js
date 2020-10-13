@@ -5,7 +5,7 @@ import OS from '../helpers/os_module';
 interface CartItemRequest {
     get    : { (cart_id:string):Promise<unknown> };
     put    : { (cart_id:string, item:{ id:number; qty:number }):Promise<unknown> };
-    remove : {}; 
+    remove : { (cart_id:string, item_id:string ):Promise<unknown> }; 
 }
 
 
