@@ -23,7 +23,7 @@ export default class Order extends OS {
          * 
          */
         this.history = {
-            get : (query) => get({ url : `${this.baseUrl}/orders/histories`, query : query || {}})
+            get : (query?:{page:Number}) => get({ url : `${this.baseUrl}/orders/histories`, query : query || {}})
         }
     }
 
@@ -65,7 +65,7 @@ export default class Order extends OS {
      *  })
      * 
      */
-    create(context:OrderInfo){
+    place(context:OrderInfo){
         return create({ url : `${this.baseUrl}/orders`, body: context });
     }
 
