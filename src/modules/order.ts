@@ -3,7 +3,7 @@ import OS from '../helpers/os_module';
 import { OrderInfo } from '../helpers/interfaces';
 
 interface OrderHistory {
-    get:Function;
+    get: { (query?:{page:Number}):Promise<unknown> };
 }
 
 export default class Order extends OS {
@@ -23,7 +23,7 @@ export default class Order extends OS {
          * 
          */
         this.history = {
-            get : (query?:{page:Number}) => get({ url : `${this.baseUrl}/orders/histories`, query : query || {}})
+            get : (query) => get({ url : `${this.baseUrl}/orders/histories`, query : query || {}})
         }
     }
 
