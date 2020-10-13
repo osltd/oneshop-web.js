@@ -1,8 +1,11 @@
 import OS from "./src/helpers/os_module";
+
+// load modules
 import Article from "./src/modules/article";
 import Cart from "./src/modules/cart";
 import Consumer from "./src/modules/consumer";
 import Merchandise from "./src/modules/merchandise";
+import Order from "./src/modules/order";
 
 export default class Oneshop extends OS{
 
@@ -11,6 +14,7 @@ export default class Oneshop extends OS{
     cart        : Cart;
     consumer    : Consumer;
     merchandise : Merchandise;
+    order       : Order;
 
     constructor(baseUrl:string){
         super(baseUrl)
@@ -23,6 +27,7 @@ export default class Oneshop extends OS{
         this.cart = new Cart(this.getShopDomain());
         this.consumer = new Consumer(this.getShopDomain());
         this.merchandise = new Merchandise(this.getShopDomain());
+        this.order = new Order(this.getShopDomain());
     }
 
     setShopBaseURL(baseUrl:string){
