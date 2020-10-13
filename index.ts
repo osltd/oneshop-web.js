@@ -9,6 +9,7 @@ import Order from "./src/modules/order";
 import ShippingMethod from "./src/modules/shipping_method";
 import Shop from "./src/modules/shop";
 import Signature from "./src/modules/signature";
+import Validation from "./src/modules/validation";
 
 export default class Oneshop extends OS{
 
@@ -20,6 +21,7 @@ export default class Oneshop extends OS{
     shipping_method : ShippingMethod;
     shop            : Shop;
     signature       : Signature;
+    validation      : Validation;
 
     constructor(baseUrl:string){
         super(baseUrl)
@@ -36,6 +38,7 @@ export default class Oneshop extends OS{
         this.shipping_method = new ShippingMethod(this.getShopDomain());
         this.shop = new Shop(this.getShopDomain());
         this.signature = new Signature(this.getShopDomain());
+        this.validation = new Validation(this.getShopDomain());
     }
 
     setShopBaseURL(baseUrl:string){
