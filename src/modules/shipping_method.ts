@@ -22,8 +22,8 @@ export default class ShippingMethod extends OS {
      *  os.shipping_methods.get({ids:'1,3,7'});
      * 
      */
-    get({ ids }){
-        return get({ url : `${this.baseUrl}/shipping_methods`, query : ids || {}});
+    get(query?:{ ids:string }){
+        return get({ url : `${this.baseUrl}/shipping_methods`, query : query || {} });
     }
 
 }
