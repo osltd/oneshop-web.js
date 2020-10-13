@@ -1,9 +1,22 @@
-const Oneshop = require('../index');
+import Oneshop from "../index";
 
-const OS = new Oneshop("oneshopacademy.oneshop.host");
 
-OS.signature.get().then(data => console.log(data)).catch(error => console.log(error));
+/**
+ * 
+ *  If you are using ReactJS to build the application
+ *  we may leave the `baseUrl` blank and setup the proxy endpont at package.json
+ * 
+ *  package.json
+ *  {
+ *      ...
+ *      proxy : "YOUR_ONESHOP_DOMAIN e.g. https://starter.oneshop.host"
+ *  }
+ *  
+ */
 
-OS.article.get().then(data => console.log(data)).catch(error => console.log(error));
 
-OS.voucher.get({codes:"summerSales"}).then(data => console.log(data)).catch(error => console.log(error));
+// craete instance
+const OS = new Oneshop();
+
+// Get article
+OS.article.get({ page : 1, tags : "oneshoprocks" })
