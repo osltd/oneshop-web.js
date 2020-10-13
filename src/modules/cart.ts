@@ -3,9 +3,9 @@ import OS from '../helpers/os_module';
 
 
 interface CartItemRequest {
-    get:Function;
-    add:Function;
-    remove:Function; 
+    get    : { (cart_id:string):Promise<unknown> };
+    put    : { (cart_id:string, item:{ id:number; qty:number }):Promise<unknown> };
+    remove : {}; 
 }
 
 
@@ -25,7 +25,7 @@ export default class Cart extends OS {
              *  os.cart.item.get('32412')
              * 
              */
-            get : (cartId) => get({ url: `${this.baseUrl}/carts/${cartId}/items`, query : {}}),
+            get : (cart_id) => get({ url: `${this.baseUrl}/carts/${cart_id}/items`, query : {}}),
 
             /**
              * Add item to cart
@@ -39,7 +39,7 @@ export default class Cart extends OS {
              *  os.cart.item.add('32412',{id:'233',qty:6});
              * 
              */
-            add : (cartId, context) => create({ url : `${this.baseUrl}/carts/${cartId}/items`, body : context || {}}),
+            put : (cart_id, context) => create({ url : `${this.baseUrl}/carts/${cart_id}/items`, body : context || {}}),
             
             /**
              * Removes an item from the cart
@@ -51,7 +51,7 @@ export default class Cart extends OS {
              *  os.cart.item.remove('32412','233');
              * 
              */
-            remove : (cartId, itemId) => remove({ url : `${this.baseUrl}/carts/${cartId}/items/${itemId}` })
+            remove : (cart_id, item_id) => remove({ url : `${this.baseUrl}/carts/${cart_id}/items/${item_id}` })
         }
     }
 
