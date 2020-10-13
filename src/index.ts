@@ -25,21 +25,21 @@ export default class Oneshop extends OS{
     validation      : Validation;
     voucher         : Voucher;
 
-    constructor(baseUrl:string){
+    constructor(baseUrl?:string){
         super(baseUrl)
         // set shop base URL
         this.setShopBaseURL(baseUrl || "");
         // setup modules
-        this.article = new Article(baseUrl);
-        this.cart = new Cart(baseUrl);
-        this.consumer = new Consumer(baseUrl);
-        this.merchandise = new Merchandise(baseUrl);
-        this.order = new Order(baseUrl);
-        this.shipping_method = new ShippingMethod(baseUrl);
-        this.shop = new Shop(baseUrl);
-        this.signature = new Signature(baseUrl);
-        this.validation = new Validation(baseUrl);
-        this.voucher = new Voucher(baseUrl);
+        this.article = new Article(this.getShopDomain());
+        this.cart = new Cart(this.getShopDomain());
+        this.consumer = new Consumer(this.getShopDomain());
+        this.merchandise = new Merchandise(this.getShopDomain());
+        this.order = new Order(this.getShopDomain());
+        this.shipping_method = new ShippingMethod(this.getShopDomain());
+        this.shop = new Shop(this.getShopDomain());
+        this.signature = new Signature(this.getShopDomain());
+        this.validation = new Validation(this.getShopDomain());
+        this.voucher = new Voucher(this.getShopDomain());
     }
 
     setShopBaseURL(baseUrl:string){
