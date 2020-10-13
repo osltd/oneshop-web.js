@@ -17,8 +17,8 @@ export default class Signature extends OS {
      *  os.signature.create({extension:'video/mp4'});
      * 
      */
-    create({ extension } : { extension:string }){
-        return create({ url : `${this.baseUrl}/signatures`, body : { extension }});
+    create(context : { extension:string }){
+        return create({ url : `${this.baseUrl}/signatures`, body : { extension : context.extension }});
     }
 
 }

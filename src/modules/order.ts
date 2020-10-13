@@ -23,7 +23,7 @@ export default class Order extends OS {
          * 
          */
         this.history = {
-            get : (query) => get({ url : `${this.baseUrl}/orders/histories`, query : query || {}})
+            get : (query?) => get({ url : `${this.baseUrl}/orders/histories`, query : query || {}})
         }
     }
 

@@ -3,7 +3,7 @@ import OS from '../helpers/os_module';
 import { OrderInfo } from '../helpers/interfaces';
 
 interface Profile {
-    get    : { ( query:any ) : Promise<unknown> };
+    get    : { ( query?:any ) : Promise<unknown> };
     update : { ( context:{ tags?:string; passwd?:string; confpasswd?:string; [customProfileKey:string]:any } ) : Promise<unknown> };
 }
 
@@ -27,7 +27,7 @@ export default class Consumer extends OS {
              *  os.consumer.profile.get()
              * 
              */
-            get : (query) => get({url: `${this.baseUrl}/consumers/session`, query : query || {}}),
+            get : (query?) => get({url: `${this.baseUrl}/consumers/session`, query : query || {}}),
 
             /**
              * Update user profile
@@ -41,7 +41,7 @@ export default class Consumer extends OS {
              *  field_2:'value_2',
              *  ...);
              */
-            update : (context) => update({ url : `${this.baseUrl}/consumers/session`, body : context })
+            update : (context?) => update({ url : `${this.baseUrl}/consumers/session`, body : context })
 
         };
 
