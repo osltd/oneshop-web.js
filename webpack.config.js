@@ -6,7 +6,7 @@ var MODE = /^prod$/.test(process.env.MODE || "prod") ? 'production' : 'developme
 module.exports = {
     mode         : MODE,
     entry        : {
-        sdk : ['./index.ts']
+        sdk : ['./src/index.ts']
     },
     module: {
         rules: [
