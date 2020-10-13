@@ -17,6 +17,6 @@ export interface OrderInfo {
         source?:string;
         card?:string;
         exp_date?:string
-        csc?:Number;
+        csc?:number;
     };
 };

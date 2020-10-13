@@ -3,7 +3,7 @@ import OS from '../helpers/os_module';
 import { OrderInfo } from '../helpers/interfaces';
 
 interface OrderHistory {
-    get: { (query?:{page:Number}):Promise<unknown> };
+    get: { (query?:{page:number}):Promise<unknown> };
 }
 
 export default class Order extends OS {

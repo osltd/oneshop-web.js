@@ -21,7 +21,7 @@ export default class Voucher extends OS {
      *  os.voucher.get({codes:'ONESHOP10OFF',page:'1'}) 
      * 
      */
-    get(query?: { codes:string; page:Number }){
+    get(query?: { codes:string; page:number }){
         return get({ url : `${this.baseUrl}/vouchers`, query : query || {}});
     }
 
