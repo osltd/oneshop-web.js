@@ -8,6 +8,7 @@ import Merchandise from "./src/modules/merchandise";
 import Order from "./src/modules/order";
 import ShippingMethod from "./src/modules/shipping_method";
 import Shop from "./src/modules/shop";
+import Signature from "./src/modules/signature";
 
 export default class Oneshop extends OS{
 
@@ -18,6 +19,7 @@ export default class Oneshop extends OS{
     order           : Order;
     shipping_method : ShippingMethod;
     shop            : Shop;
+    signature       : Signature;
 
     constructor(baseUrl:string){
         super(baseUrl)
@@ -33,6 +35,7 @@ export default class Oneshop extends OS{
         this.order = new Order(this.getShopDomain());
         this.shipping_method = new ShippingMethod(this.getShopDomain());
         this.shop = new Shop(this.getShopDomain());
+        this.signature = new Signature(this.getShopDomain());
     }
 
     setShopBaseURL(baseUrl:string){
