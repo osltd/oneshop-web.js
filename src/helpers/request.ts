@@ -1,12 +1,19 @@
-// use qs as query stringifier
-import { stringify } from "qs";
 
 // define request structure
 interface RequestPayload {
     method : string;
     url : string;
-    body? : Object;
-    query? : Object;
+    body? : any;
+    query? : any;
+}
+
+const queryStringify = (query:any):string => {
+    let queryKeys:string[] = Object.keys(query);
+    let queries = queryKeys.reduce<string[]>((queryStrings, key) => {
+        queryStrings.push(`${key}=${query[key]}`);
+        return queryStrings;
+    }, []);
+    return queries.join("&");
 }
 
 const makeRequest = (req : RequestPayload) => new Promise((resolve, reject) => {
@@ -18,7 +25,7 @@ const makeRequest = (req : RequestPayload) => new Promise((resolve, reject) => {
         }
     };
     // setup url
-    req.url = req.url + (Object.keys(req.query || {}).length ? `?${stringify(req.query)}` : "");
+    req.url = req.url + (Object.keys(req.query || {}).length ? `?${queryStringify(req.query)}` : "");
     // has body?
     if(/^POST|PUT$/i.test(req.method)){
         payload.body = JSON.stringify(req.body);
