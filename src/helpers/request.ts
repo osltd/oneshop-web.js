@@ -78,7 +78,7 @@ interface Payload {
 }
 
 // expose methods
-export const create = (pl:Payload) => makeRequest({method : 'POST', url : pl.url, body : pl.body, query : {}});
-export const get    = (pl:Payload) => makeRequest({method : 'GET', url : pl.url, body : pl.body, query : {}});
-export const update = (pl:Payload) => makeRequest({method : 'PUT', url : pl.url, body : pl.body, query : {}});
-export const remove = (pl:Payload) => makeRequest({method : 'DELETE', url : pl.url, body : pl.body, query : {}});
+export const create = (pl:Payload) => makeRequest({method : 'POST', url : pl.url, body : pl.body, query : pl.query || {}});
+export const get    = (pl:Payload) => makeRequest({method : 'GET', url : pl.url, body : pl.body, query : pl.query || {}});
+export const update = (pl:Payload) => makeRequest({method : 'PUT', url : pl.url, body : pl.body, query : pl.query || {}});
+export const remove = (pl:Payload) => makeRequest({method : 'DELETE', url : pl.url, body : pl.body, query : pl.query || {}});
