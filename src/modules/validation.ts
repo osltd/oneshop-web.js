@@ -1,9 +1,10 @@
-const request = require('../helpers/request');
+import { create, update } from '../helpers/request';
+import OS from '../helpers/os_module';
 
-class Validation {
+export default class Validation extends OS {
     
-    constructor(base_url){
-        this.base_url = base_url;
+    constructor(baseUrl:string){
+        super(baseUrl);
     }
 
     /**
@@ -19,8 +20,8 @@ class Validation {
      *  os.validation.create({email:'test@oneshop.cloud',type:'LINK'})
      * 
      */
-    create(context){
-        return request.post(`${this.base_url}/validations`, context);
+    create(context: { email:string; type:string; }){
+        return create({ url : `${this.baseUrl}/validations`, body: context});
     }
 
     /**
@@ -33,6 +34,8 @@ class Validation {
      * Examples:
      * 
      *  // create validation by 'email'
+     *  // if passwd and confpasswd are exists, will also reset the password
+     *  // otherwise, will only activate the account
      * 
      *  os.validation.consume(
      *      1234, 
@@ -40,10 +43,8 @@ class Validation {
      *  )
      * 
      */
-    consume(validationId, context){
-        return request.put(`${this.base_url}/validations/${validationId}`, context);
+    consume(validation_id:string, context : { code:string, passwd?:string; confpasswd?:string }){
+        return update({ url : `${this.baseUrl}/validations/${validation_id}`, body:context });
     }
-    
-}
 
-module.exports = Validation;
+}
