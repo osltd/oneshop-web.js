@@ -1,10 +1,10 @@
 import { get, create, remove, update } from '../helpers/request';
 import OS from '../helpers/os_module';
-
+import { OrderInfo } from '../helpers/interfaces';
 
 interface Profile {
-    get:Function;
-    update:Function;
+    get    : { ( query:any ) : Promise<unknown> };
+    update : { ( context:{ tags?:string; passwd?:string; confpasswd?:string; [customProfileKey:string]:any } ) : Promise<unknown> };
 }
 
 export default class Consumer extends OS {
@@ -63,7 +63,7 @@ export default class Consumer extends OS {
      *  phone:'+85299887766',email:'test@oneshop.cloud'});
      * 
      */
-    signUp(context){
+    signUp(context: { email?:string; phone?:string; passwd:string; confpasswd:string; first_name:string; last_name:string, [customProfileKey:string] : any }){
         return create({url: `${this.baseUrl}/consumers`, body: context});
     }
 
@@ -101,8 +101,8 @@ export default class Consumer extends OS {
      * 
      * 
      */
-    login(context){
-        return create({ url: `${this.baseUrl}/sessions`, body : context });
+    login(credential:{ email?:string; phone?:string; passwd:string }){
+        return create({ url: `${this.baseUrl}/sessions`, body : credential });
     }
 
 
@@ -122,29 +122,33 @@ export default class Consumer extends OS {
      * 
      * Examples:
      * 
-     *  os.consumer.checkout({
-     *      items : "R1g0GTJc9tGp3443",
-     *      coupons : "OneshopDevRocks",
-     *      notes : "Please provide me a double layer packing, thank you!",
-     *      shipping : {
-     *          address : "1/F, Camelpaint Building, Block 1, 62 Hoi Yuen Road, Kwun Tong",
-     *          country : "HK"
+     *  os.order.create({
+     *      coupons:'ONESHOP10OFF',
+     *      notes:'Please check the package pack well.',
+     *      shippings : {
+     *          1234(shop id) : 'os-ship-a422-ad9g-2f42-akf0' (shipping method id)
+     *      }
+     *      shipping:{
+     *          address : '1/F Block 1, Camcam Paint Building, 62 Hoi Yuen Road, Kwun Tong',
+     *          country : 'HK'
      *      },
-     *      contact : {
-     *          email : "hello@oneshop.team",
-     *          first_name : "Peter",
-     *          last_name : "Chan",
-     *          phone : "+85261234567"
+     *      items:"h03ifhum4x",
+     *      contact:{
+     *          first_name:'One',
+     *          last_name:'Shop',
+     *          email:'test@oneshop.cloud',
+     *          phone:'+85293456789',
+     *          address:'1/f, Block 1, Camel Paint Building, 62 Hoi Yuen Road, Kwun Tong'
      *      },
-     *      payment : {
-     *          card : "4242424242424242",
-     *          exp_date : "03/23",
-     *          csc : "123"
+     *      payment:{
+     *          card:'4242424242424242',
+     *          csc:'123',
+     *          exp_date:'01/23'
      *      }
      *  })
      * 
      */
-    checkout(context) {
+    checkout(context:OrderInfo) {
         return create({ url : `${this.baseUrl}/payments`, body : context});
     }
     
