@@ -1,6 +1,4 @@
-import Oneshop from "../lib";
-
-
+const Oneshop = require('../lib');
 /**
  * 
  *  If you are using ReactJS to build the application
@@ -14,9 +12,8 @@ import Oneshop from "../lib";
  *  
  */
 
-
 // craete instance
-const OS = new Oneshop();
+const OS = new Oneshop.default();
 
 // Get article
 OS.article.get({ page : 1, tags : "oneshoprocks" });

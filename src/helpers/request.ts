@@ -25,13 +25,13 @@ const makeRequest = (req : RequestPayload) => new Promise((resolve, reject) => {
         }
     };
     // setup url
-    req.url = req.url + req.query != undefined ? `?${queryStringify(req.query)}` : "";
+    let URL = req.url + (req.query != undefined ? `?${queryStringify(req.query)}` : "");
     // has body?
     if(/^POST|PUT$/i.test(req.method)){
         payload.body = JSON.stringify(req.body);
     }
     // make request
-    fetch(req.url, payload)
+    fetch(URL, payload)
     // got response
     .then(response => {
         // error occurred
