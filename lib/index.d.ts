@@ -20,7 +20,7 @@ export default class Oneshop extends OS {
     signature: Signature;
     validation: Validation;
     voucher: Voucher;
-    constructor(baseUrl: string);
+    constructor(baseUrl?: string);
     setShopBaseURL(baseUrl: string): void;
-    getShopDomain(): string | undefined;
+    getShopDomain(): any;
 }
