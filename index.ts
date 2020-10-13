@@ -6,15 +6,16 @@ import Cart from "./src/modules/cart";
 import Consumer from "./src/modules/consumer";
 import Merchandise from "./src/modules/merchandise";
 import Order from "./src/modules/order";
+import ShippingMethod from "./src/modules/shipping_method";
 
 export default class Oneshop extends OS{
 
-    baseUrl?    : string;
-    article     : Article;
-    cart        : Cart;
-    consumer    : Consumer;
-    merchandise : Merchandise;
-    order       : Order;
+    article         : Article;
+    cart            : Cart;
+    consumer        : Consumer;
+    merchandise     : Merchandise;
+    order           : Order;
+    shipping_method : ShippingMethod;
 
     constructor(baseUrl:string){
         super(baseUrl)
@@ -28,6 +29,7 @@ export default class Oneshop extends OS{
         this.consumer = new Consumer(this.getShopDomain());
         this.merchandise = new Merchandise(this.getShopDomain());
         this.order = new Order(this.getShopDomain());
+        this.shipping_method = new ShippingMethod(this.getShopDomain());
     }
 
     setShopBaseURL(baseUrl:string){
