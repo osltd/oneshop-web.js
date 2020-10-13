@@ -1,6 +1,20 @@
 import { get } from '../helpers/request';
 import OS from '../helpers/os_module';
 
+interface ArticleQuery {
+    ids?:string;
+    shops?:string;
+    tags?:string;
+    excluded_tags?:string;
+    collections?:string;
+    collection_names?:string;
+    statuses?:string;
+    locale?:string;
+    keywords?:string;
+    sections?: { [sectionKey:string]:string }
+    page?:number
+}
+
 
 export default class Article extends OS {
     
@@ -32,7 +46,7 @@ export default class Article extends OS {
      *  shops:'522',statuses:'PUBLISHED',page:'1'});
      * 
      */
-    get(query){
+    get(query?:ArticleQuery){
         return get({ url : `${this.baseUrl}/articles`, query : query || {}});
     }
     
