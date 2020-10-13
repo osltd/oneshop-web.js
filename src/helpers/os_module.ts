@@ -2,8 +2,8 @@ class OS {
 
     protected baseUrl? : string;
 
-    constructor(_baseUrl:string) {
-        this.baseUrl = _baseUrl;
+    constructor(_baseUrl?:string) {
+        this.baseUrl = _baseUrl || "";
     }
 
 }
