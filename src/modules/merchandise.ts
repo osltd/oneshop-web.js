@@ -12,7 +12,6 @@ interface MerchandisesQuery {
     instock?:boolean;
     locale?:string;
     keywords?:string;
-    variants?:{ [variantKey:string] : [variantValue:string] };
     ordering?:string;
     page?:number;
 }
