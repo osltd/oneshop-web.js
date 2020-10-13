@@ -1,9 +1,40 @@
-const request = require('../helpers/request');
+import { get, create } from '../helpers/request';
+import OS from '../helpers/os_module';
 
-class Order {
+interface OrderHistory {
+    get:Function;
+}
+
+interface OrderInfo {
+    items:string;
+    coupons?:string;
+    notes?:string;
+    shippings?:any;
+    shipping?:{
+        address:string;
+        country:string;
+    };
+    contact:{
+        email?:string;
+        phone?:string;
+        first_name:string;
+        last_name:string;
+    };
+    payment:{
+        source?:string;
+        card?:string;
+        exp_date?:string
+        csc?:Number;
+    };
+}
+
+
+export default class Order extends OS {
     
-    constructor(base_url){
-        this.base_url = base_url;
+    history:OrderHistory;
+
+    constructor(baseUrl:string){
+        super(baseUrl);
         /**
          * Retrieve order history
          * @param {Object} query 
@@ -15,7 +46,7 @@ class Order {
          * 
          */
         this.history = {
-            get : (query) => request.get(`${this.base_url}/orders/histories`, query || {})
+            get : (query) => get({ url : `${this.baseUrl}/orders/histories`, query : query || {}})
         }
     }
 
@@ -34,12 +65,14 @@ class Order {
      *  os.order.create({
      *      coupons:'ONESHOP10OFF',
      *      notes:'Please check the package pack well.',
-     *      shipping:'1/F Block 1, Camcam Paint Building, 62 Hoi Yuen Road, Kwun Tong',
-     *      items:[{
-     *          id:'08h25glao8h03ipwui9202ty48jfhum4x',
-     *          qty:5,
-     *          courier:"80h2480-29gh82gh-13081y4f-98h21"
-     *      }],
+     *      shippings : {
+     *          1234(shop id) : 'os-ship-a422-ad9g-2f42-akf0' (shipping method id)
+     *      }
+     *      shipping:{
+     *          address : '1/F Block 1, Camcam Paint Building, 62 Hoi Yuen Road, Kwun Tong',
+     *          country : 'HK'
+     *      },
+     *      items:"h03ifhum4x",
      *      contact:{
      *          first_name:'One',
      *          last_name:'Shop',
@@ -55,10 +88,8 @@ class Order {
      *  })
      * 
      */
-    create(context){
-        return request.post(`${this.base_url}/orders`, context);
+    create(context:OrderInfo){
+        return create({ url : `${this.baseUrl}/orders`, body: context });
     }
 
 }
-
-module.exports = Order;
