@@ -1,9 +1,10 @@
-const request = require('../helpers/request');
+import { get } from '../helpers/request';
+import OS from '../helpers/os_module';
 
-class Voucher {
+export default class Voucher extends OS {
     
-    constructor(base_url){
-        this.base_url = base_url;
+    constructor(baseUrl:string){
+        super(baseUrl);
     }
 
     /**
@@ -20,10 +21,8 @@ class Voucher {
      *  os.voucher.get({codes:'ONESHOP10OFF',page:'1'}) 
      * 
      */
-    get(query){
-        return request.get(`${this.base_url}/vouchers`, query || {});
+    get(query?: { codes:string; page:Number }){
+        return get({ url : `${this.baseUrl}/vouchers`, query : query || {}});
     }
 
 }
-
-module.exports = Voucher;
