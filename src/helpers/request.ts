@@ -30,7 +30,7 @@ const makeRequest = (req : RequestPayload) => new Promise((resolve, reject) => {
         // error occurred
         if(response.status > 200){
             // setup error message container
-            let messages = [];
+            let messages:string[] = [];
             // result container
             let result:any = {};
             // get response body
