@@ -39,6 +39,7 @@ OR with `npm`:
 npm install --save oneshop.web
 ```
 <hr/>
+
 ### Option 2. Develop without using frameworks<br/>
 See the demo folder in this repository. Start an Express server and set the proxy target to your web shop's domain.<br/><br/>
 
