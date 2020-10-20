@@ -25,7 +25,7 @@ See the [`Oneshop-web` API docs](https://docs.oneshop.dev) for JS/ReactJS.
   
 ## Installation
 
-### Option 1. For React JS, Vue Js or Angular JS.
+### Option 1. For framworks like React JS, Vue Js or Angular JS.
 
 Install with `yarn`:
 
@@ -38,10 +38,7 @@ OR with `npm`:
 ```
 npm install --save oneshop.web
 ```
-<br/>
 <hr/>
-<br/>
-
 ### Option 2. Develop without using frameworks<br/>
 See the demo folder in this repository. Start an Express server and set the proxy target to your web shop's domain.<br/><br/>
 
@@ -50,17 +47,11 @@ See the demo folder in this repository. Start an Express server and set the prox
 cd ~/demo/non-framework 
 npm i
 ```
-
-<br/><br/>
 2. Replace the Oneshop's default theme domain with yours.<br/>
 <img src="./demo_2.png" />
-
-<br/><br/>
 3. Edit your source files at `src` folder, you are ready to develop your website now!🎉 <br/>
 <img src="./demo.png" />
-
-
-<br/><br/>
+<br/>
 ## Usage
 ### ReactJS
 
