@@ -38,25 +38,27 @@ OR with `npm`:
 ```
 npm install --save oneshop.web
 ```
-
-OR using UMD build (exports a global `Oneshop` object);
+<br/>
+<hr/>
 <br/>
 
-### Option 2. Loading Oneshop Web SDK asynchronously
-Loading Oneshop.web asynchronously can speed up your initial page load.
+### Option 2. Develop without using frameworks<br/>
+See the demo folder in this repository. Start an Express server and set the proxy target to your web shop's domain.<br/><br/>
 
-```html
-<html>
-  <head>
-    <!-- ... -->
-
-    <script id="oneshop-web" src="https://cdn.oneshop.cloud/oneshop-sdk.min.js" async></script>
-
-    <!-- ... -->
-  </head>
-  <!-- ... -->
-</html>
+1. install the node modules before you start the server.
 ```
+cd ~/demo/non-framework 
+npm i
+```
+
+<br/><br/>
+2. Replace the Oneshop's default theme domain with yours.<br/>
+<img src="./demo_2.png" />
+
+<br/><br/>
+3. Edit your source files at `src` folder, you are ready to develop your website now!🎉 <br/>
+<img src="./demo.png" />
+
 
 <br/><br/>
 ## Usage
@@ -94,32 +96,36 @@ function App(){
 
 ```
 
-### Html
+### Without frameworks
 ```html
+<!DOCTYPE html>
 <html>
   <head>
-    <!-- ... -->
-
-    <script id="oneshop-web" src="https://cdn.oneshop.cloud/oneshop-sdk.min.js" async></script>
-
-    <!-- ... -->
+    <meta charset="utf-8"/>
+    <script id="oneshop-web" src="https://cdn.oneshop.cloud/oneshop-sdk-min.js"></script>
   </head>
   <body>
+    <div id="articles"></div>
     <script>
-        let os = new Oneshop();
-
-        // perform login
-        os.consumer.login({
-            email:"peter@foo.com", 
-            passwd:"this-is-a-very-long-password"
-        })
-        .then((tokens) => {
-            // do you stuffs
-        })
-        .catch(error => console.log(error))
+        // create OS instance
+        let OS = new Oneshop.default();
+        // IIFE to get article
+        (async () => {
+            // get articles
+            let articles = await OS.article.get();
+            // get element
+            let articleDiv = document.getElementById('articles');
+            // get view
+            articleDiv.innerHTML = articles.map(a => `
+              <div>
+                ${a.sections[0].media.length > 0 ? `<img src="${a.sections[0].media[0].url}" width="300" height="auto" />` : ""}
+                <h5>${a.sections[0].title}</h5>
+                <p>${a.sections[0].description}</p>
+              </div>
+            `);
+        })();
     </script>
   </body>
-  <!-- ... -->
 </html>
 ```
 <br/><br/>
