@@ -43,7 +43,7 @@ npm install --save oneshop.web
 ### Option 2. Develop without using frameworks<br/>
 See the demo folder in this repository. Start an Express server and set the proxy target to your web shop's domain.<br/><br/>
 
-1. install the node modules before you start the server.
+1. install node modules before you start the server.
 ```
 cd ~/demo/non-framework 
 npm i
@@ -53,7 +53,9 @@ npm i
 3. Edit your source files at `src` folder, you are ready to develop your website now!🎉 <br/>
 <img src="./demo.png" />
 <br/>
+
 ## Usage
+
 ### ReactJS
 
 ```js
