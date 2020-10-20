@@ -2,7 +2,6 @@ let webpackConfig = require('./webpack.config');
 let rm            = require('rimraf');
 let path          = require('path');
 let webpack       = require('webpack');
-let util          = require('util');
 let AWS           = require('aws-sdk');
 let fs            = require('fs');
 
@@ -18,15 +17,16 @@ AWS.config.update({
 // push build to s3
 const pushToS3 = () => {
     // read build
-    fs.readFile(`${__dirname}/dist/oneshop-sdk.min.js`, function (err, data) {
+    fs.readFile(`${__dirname}/dist/oneshop-sdk-min.js`, function (err, data) {
         // error on reading file
         if (err) throw err;
         // upload to S3
         new AWS.S3()
         .putObject({
-            Bucket: process.env.AWS_BUCKET,
-            Key: 'oneshop-sdk.min.js',
-            Body: data
+            Bucket      : process.env.AWS_BUCKET,
+            Key         : 'oneshop-sdk-min.js',
+            Body        : data.toString('utf-8'),
+            ContentType : 'application/javascript'
         }, function (err, data) {
             console.log(err ? err : 'Successfully uploaded sdk to remote.');
         });
@@ -36,7 +36,7 @@ const pushToS3 = () => {
 // compile callback
 const compileCallback = (er, stats) => {
     if (er) throw er
-    stats = util.isArray(stats.stats) ? stats.stats : [stats]
+    stats = Array.isArray(stats.stats) ? stats.stats : [stats]
     stats.forEach((item) => {
         // log to console
         process.stdout.write(item.toString({
