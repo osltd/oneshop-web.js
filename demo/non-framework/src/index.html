@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <script id="oneshop-web" src="https://cdn.oneshop.cloud/oneshop-sdk-min.js"></script>
+  </head>
+  <body>
+    <div id="articles"></div>
+    <script>
+        // create OS instance
+        let OS = new Oneshop.default();
+        // IIFE to get article
+        (async () => {
+            // get articles
+            let articles = await OS.article.get();
+            // get element
+            let articleDiv = document.getElementById('articles');
+            // get view
+            articleDiv.innerHTML = articles.map(a => `
+              <div>
+                ${a.sections[0].media.length > 0 ? `<img src="${a.sections[0].media[0].url}" width="300" height="auto" />` : ""}
+                <h5>${a.sections[0].title}</h5>
+                <p>${a.sections[0].description}</p>
+              </div>
+            `);
+        })();
+    </script>
+  </body>
+</html>

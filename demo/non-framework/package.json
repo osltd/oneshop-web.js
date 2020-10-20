@@ -1,0 +1,16 @@
+{
+  "name": "sdktest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "oneshop-sdk.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.6",
+    "mime-types": "^2.1.27"
+  }
+}
