@@ -22,7 +22,7 @@ module.exports = {
     },
     output       : {
         path          : path.resolve(__dirname, 'dist'),
-        filename      : /^production$/.test(MODE) ? 'oneshop-sdk.min.js' : 'oneshop-sdk.dev.js',
+        filename      : /^production$/.test(MODE) ? 'oneshop-sdk-min.js' : 'oneshop-sdk-dev.js',
         library       : 'Oneshop', // The library name
         libraryTarget : "umd"
     }, 
