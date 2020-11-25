@@ -3,7 +3,9 @@ import { OrderInfo } from '../helpers/interfaces';
 interface OrderHistory {
     get: {
         (query?: {
-            page: number;
+            page?: number;
+            start_time?: string;
+            end_time?: string;
         }): Promise<unknown>;
     };
 }
