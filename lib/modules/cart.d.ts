@@ -1,4 +1,5 @@
 import OS from '../helpers/os_module';
+import { QuotationInfo } from '../helpers/interfaces';
 interface CartItemRequest {
     get: {
         (cart_id: string): Promise<unknown>;
@@ -25,5 +26,14 @@ export default class Cart extends OS {
      *
      */
     create(): Promise<unknown>;
+    /**
+     * Get Cart Preview
+     *
+     * Examples:
+     *
+     *  os.cart.preview();
+     *
+     */
+    preview(context: QuotationInfo): Promise<unknown>;
 }
 export {};

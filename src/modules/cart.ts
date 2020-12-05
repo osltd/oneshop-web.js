@@ -1,5 +1,6 @@
 import { get, create, remove } from '../helpers/request';
 import OS from '../helpers/os_module';
+import { QuotationInfo } from '../helpers/interfaces';
 
 
 interface CartItemRequest {
@@ -65,6 +66,18 @@ export default class Cart extends OS {
      */
     create(){
         return create({ url : `${this.baseUrl}/carts`, body : {}});
+    }
+
+    /**
+     * Get Cart Preview
+     * 
+     * Examples:
+     * 
+     *  os.cart.preview();
+     * 
+     */
+    preview(context:QuotationInfo){
+        return create({ url : `${this.baseUrl}/carts/${context.items}/`, body : context })
     }
     
 }
