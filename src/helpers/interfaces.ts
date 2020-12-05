@@ -20,3 +20,22 @@ export interface OrderInfo {
         csc?:number;
     };
 };
+
+
+
+// ----------------- For preview -----------------
+export interface QuotationInfo {
+    coupons?:string;
+    shippings?:any;
+    shipping?:{
+        address:string;
+        country:string;
+    };
+    wallet?:{
+        source?:string;
+        method?:string;
+        currency?:string
+        return_path?:string;
+    };
+    items:string
+};
