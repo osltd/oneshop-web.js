@@ -77,7 +77,7 @@ export default class Cart extends OS {
      * 
      */
     preview(context:QuotationInfo){
-        return create({ url : `${this.baseUrl}/carts/${context.items}/`, body : context })
+        return create({ url : `${this.baseUrl}/carts/${context.items}/previews`, body : context })
     }
     
 }
