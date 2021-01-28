@@ -13,7 +13,7 @@ See the [`Oneshop-web` API docs](https://docs.oneshop.dev) for JS/ReactJS.
 <br/><br/>
 
 ## Guildlines
-### Create shop (Referral Code Required)
+### Create shop
 [`https://youtu.be/YjEhv97633Y`](https://youtu.be/YjEhv97633Y)
 
 ### Setup custom theme
